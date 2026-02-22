@@ -21,9 +21,8 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 RUN pnpm run build
-RUN pnpm run deploy # ビルド時にコマンドも同期させる
 
 FROM base
 COPY --from=prod-deps /app/node_modules /app/node_modules
 COPY --from=build /app/dist /app/dist
-CMD [ "pnpm", "start" ]
+CMD ["sh", "-c", "pnpm run deploy && pnpm start"]
