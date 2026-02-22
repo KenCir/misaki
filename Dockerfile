@@ -6,7 +6,7 @@ COPY . /app
 WORKDIR /app
 
 FROM base AS prod-deps
-RUN apt get update && apt get install -y \
+RUN apt-get update && apt-get install -y \
     python3 \
     make \
     g++ \
@@ -14,7 +14,7 @@ RUN apt get update && apt get install -y \
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile --ignore-scripts
 
 FROM base AS build
-RUN apt get update && apt get install -y \
+RUN apt-get update && apt-get install -y \
     python3 \
     make \
     g++ \
