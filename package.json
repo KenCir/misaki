@@ -7,10 +7,10 @@
 	"scripts": {
 		"build": "tsc",
 		"lint": "prettier --check . && eslint --ext .ts --format=pretty src",
-		"deploy": "node --env-file=.env dist/util/deploy.js",
+		"deploy": "node dist/util/deploy.js",
 		"deploy:guild": "node --env-file=.env dist/util/deployGuild.js",
 		"format": "prettier --write . && eslint --ext .ts --fix --format=pretty src",
-		"start": "node --env-file=.env dist/index.js",
+		"start": "node dist/index.js",
 		"dev": "NODE_ENV=development node --env-file=.env dist/index.js --enable-source-maps",
 		"prepare": "husky install"
 	},
