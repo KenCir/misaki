@@ -22,7 +22,7 @@ RUN pnpm prune --prod --ignore-scripts
 FROM node:24-slim
 WORKDIR /app
 ENV NODE_ENV=production
-RUN mkdir logs && chown node:node logs
+RUN mkdir -p logs && chown -R node:node logs
 COPY --from=build --chown=node:node /app/package.json /app/LICENSE ./
 COPY --from=build --chown=node:node /app/node_modules ./node_modules
 COPY --from=build --chown=node:node /app/dist ./dist
