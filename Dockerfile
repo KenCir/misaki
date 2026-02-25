@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile --ignore-scripts
 
 FROM base AS build
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml  ./
+COPY . ./
 RUN apt-get update && apt-get install -y \
     python3 \
     make \
