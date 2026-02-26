@@ -4,16 +4,19 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
 
-FROM base AS deps
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+FROM base AS build-tooling
 RUN apt-get update && apt-get install -y \
     python3 \
     make \
     g++ \
     && rm -rf /var/lib/apt/lists/*
+
+FROM build-tooling AS deps
+COPY pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY package.json ./
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
     pnpm install --frozen-lockfile --ignore-scripts
-    
+
 FROM deps AS build
 COPY . .
 RUN pnpm run build
