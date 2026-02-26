@@ -16,21 +16,6 @@ if (process.env.NODE_ENV === 'development') {
 				},
 				level: 'debug',
 			},
-			{
-				target: 'pino/file',
-				options: { destination: `logs/${process.env.LOGGER_NAME}.log`, mkdir: true },
-				level: 'debug',
-			},
-		],
-	});
-} else {
-	transport = pino.transport({
-		targets: [
-			{
-				target: 'pino/file',
-				options: { destination: `logs/${process.env.LOGGER_NAME}.log`, mkdir: true },
-				level: 'info',
-			},
 		],
 	});
 }
