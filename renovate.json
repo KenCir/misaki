@@ -27,16 +27,6 @@
 	],
 	"vulnerabilityAlerts": {
 		"enabled": true,
-		"labels": ["Type: Dependencies", "Type: Security"],
-		"packageRules": [
-			{
-				"matchManagers": ["npm"],
-				"addLabels": ["javascript"]
-			},
-			{
-				"matchManagers": ["github-actions"],
-				"addLabels": ["github_actions"]
-			}
-		]
+		"addLabels": ["Type: Security"]
 	}
 }
