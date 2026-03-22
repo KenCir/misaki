@@ -12,7 +12,7 @@
 		"format": "prettier --write . && eslint --ext .ts --fix --format=pretty src",
 		"start": "node --env-file=.env dist/index.js",
 		"dev": "NODE_ENV=development node --env-file=.env dist/index.js --enable-source-maps",
-		"prepare": "husky install"
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@discordjs/core": "^2.4.0",
