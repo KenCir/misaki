@@ -1,4 +1,4 @@
-FROM node:24-slim AS base
+FROM node:24.14.1-slim AS base
 WORKDIR /app
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -22,7 +22,7 @@ COPY . .
 RUN pnpm run build
 RUN pnpm prune --prod --ignore-scripts
 
-FROM node:24-slim
+FROM node:24.14.1-slim
 WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=build --chown=node:node /app/package.json /app/LICENSE ./
