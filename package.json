@@ -21,7 +21,7 @@
 		"openai": "^6.33.0",
 		"pino": "^10.3.1",
 		"zlib-sync": "^0.1.10",
-		"zod": "^4.3.6"
+		"zod": "^4.4.3"
 	},
 	"devDependencies": {
 		"@sapphire/ts-config": "^5.0.3",
