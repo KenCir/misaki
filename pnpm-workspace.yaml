@@ -1,4 +1,4 @@
-onlyBuiltDependencies:
-  - bufferutil
-  - zlib-sync
-  - unrs-resolver
+allowBuilds:
+  bufferutil: true
+  zlib-sync: true
+  unrs-resolver: true
