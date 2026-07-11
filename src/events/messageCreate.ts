@@ -65,7 +65,7 @@ export function detectDownByScore(text: string): Mood {
 	}
 
 	// ネガティブ記号ボーナス（… や 。。）
-	if (/(\.{2,}|…+|。{2,})/.test(content)) {
+	if (/\.{2,}|…+|。{2,}/.test(content)) {
 		score += 1;
 	}
 
